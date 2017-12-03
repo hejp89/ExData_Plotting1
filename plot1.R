@@ -1,0 +1,19 @@
+power_data_file <- "D:/Projects/R/Coursera - Exploratory Data Analysis/Exploratory Data Analysis Week 1 Project/data/household_power_consumption.txt"
+
+power_data <- read.csv(power_data_file, sep=";", stringsAsFactors = FALSE)
+
+power_data$Date <- strptime(power_data$Date, "%d/%m/%Y")
+power_data$Time <- strptime(power_data$Time, "%H:%M:%S")
+power_data$Global_active_power <- as.numeric(power_data$Global_active_power)
+
+from_date <- strftime("2007-02-01", "%Y-%m-%d")
+to_date <- strftime("2007-02-02", "%Y-%m-%d")
+
+date_select <- power_data$Date >= from_date & power_data$Date <= to_date
+
+power_data_sub <- power_data[date_select, ]
+
+hist(power_data_sub$Global_active_power, xlab = "Global Active Power (kilowatts)", ylab = "Frequency", main = "Global Active Power", col = "red")
+
+dev.copy(png, "plot1.png")
+dev.off()

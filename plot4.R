@@ -20,7 +20,7 @@ date_select <- power_data$Date >= from_date & power_data$Date <= to_date & !is.n
 
 power_data_sub <- power_data[date_select, ]
 
-par(mfrow=c(2, 2))
+par(mfrow=c(2, 2), bg = "white")
 
 plot(power_data_sub$Datetime, power_data_sub$Global_active_power, type="l", xlab="", ylab="Global Active Power")
 
@@ -29,7 +29,7 @@ plot(power_data_sub$Datetime, power_data_sub$Voltage, type="l", xlab="datetime",
 plot(power_data_sub$Datetime, power_data_sub$Sub_metering_1, type="l", xlab="", ylab="Energy sub metering", col="black")
 lines(power_data_sub$Datetime, power_data_sub$Sub_metering_2, col="red")
 lines(power_data_sub$Datetime, power_data_sub$Sub_metering_3, col="blue")
-legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col=c("black", "red", "blue"), lty=1, box.lty=0)
+legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col=c("black", "red", "blue"), lwd=2.5, lty=1, bty="n", cex=0.8)
 
 plot(power_data_sub$Datetime, power_data_sub$Global_reactive_power, type="l", xlab="datetime", ylab="Global_relative_power")
 

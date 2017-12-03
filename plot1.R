@@ -13,6 +13,8 @@ date_select <- power_data$Date >= from_date & power_data$Date <= to_date
 
 power_data_sub <- power_data[date_select, ]
 
+par(bg = "white")
+
 hist(power_data_sub$Global_active_power, xlab = "Global Active Power (kilowatts)", ylab = "Frequency", main = "Global Active Power", col = "red")
 
 dev.copy(png, "plot1.png")

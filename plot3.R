@@ -17,6 +17,8 @@ date_select <- power_data$Date >= from_date & power_data$Date <= to_date & !is.n
 
 power_data_sub <- power_data[date_select, ]
 
+par(bg = "white")
+
 plot(power_data_sub$Datetime, power_data_sub$Sub_metering_1, type="l", xlab="", ylab="Energy sub metering", col="black")
 lines(power_data_sub$Datetime, power_data_sub$Sub_metering_2, col="red")
 lines(power_data_sub$Datetime, power_data_sub$Sub_metering_3, col="blue")
